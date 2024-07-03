@@ -23,6 +23,8 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 const ImageModal = ({ isOpen, onRequestClose, selectedImage }: ImageModalProps) => {
+  if (!selectedImage) return null;
+
   return (
     <Modal
       isOpen={isOpen}
@@ -32,12 +34,13 @@ const ImageModal = ({ isOpen, onRequestClose, selectedImage }: ImageModalProps) 
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
     >
-      {selectedImage && <img src={selectedImage.srcSet} alt={selectedImage.alt || 'Image'} />}
+      <img src={selectedImage.srcSet} alt={selectedImage.alt || 'Image'} />
     </Modal>
   );
 };
 
 export default ImageModal;
+
 
 
 // import Modal from 'react-modal';
