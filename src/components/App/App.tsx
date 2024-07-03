@@ -1,18 +1,18 @@
 import { useState } from 'react';
 
-import ErrorMessage from './components/ErrorMessage/ErrorMessage';
-import Header from './components/Header/Header';
-import ImageGallery from './components/ImageGallery/ImageGallery';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Header from '../Header/Header';
+import ImageGallery from '../ImageGallery/ImageGallery';
 
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 
-import { fetchImagesApi } from './images-api';
+import { fetchImagesApi } from '../../images-api';
 import { Audio } from 'react-loader-spinner';
 
 
 import './App.css';
 import toast,  { Toaster } from 'react-hot-toast';
-import ImageModal from './components/ImageModal/ImageModal';
+import ImageModal from '../ImageModal/ImageModal';
 
 
 // _______________________Toast___________________________
