@@ -18,7 +18,7 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [topic, setTopic] = useState<string>('');
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<{ srcSet: string; alt?: string } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ srcSet: string; alt?: string | undefined } | null>(null);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
   const onSearch = async (newTopic: string) => {
@@ -57,7 +57,7 @@ function App() {
   };
 
   const openModal = (image: ImageData) => {
-    setSelectedImage({ srcSet: image.urls.regular, alt: image.alt_description });
+    setSelectedImage({ srcSet: image.urls.regular, alt: image.alt_description ?? undefined });
     setIsOpen(true);
   };
 
