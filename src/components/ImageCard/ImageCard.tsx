@@ -1,17 +1,16 @@
-
 import styles from "./ImageCard.module.css";
 
 type ImageCardProps = {
   src: string;
   srcSet: string;
   alt: string;
-  openModal: (image: { srcSet: string }) => void;
+  openModal: () => void;
 };
 
 const ImageCard = ({ src, srcSet, alt, openModal }: ImageCardProps) => {
   return (
     <div>
-      <img src={src} alt={alt} onClick={() => openModal({ srcSet })} className={styles.img} />
+      <img src={src} alt={alt} onClick={openModal} className={styles.img} />
     </div>
   );
 };

@@ -18,7 +18,7 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [topic, setTopic] = useState<string>('');
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<{ srcSet: string; alt?: string | undefined } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ srcSet: string; alt?: string } | null>(null);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
   const onSearch = async (newTopic: string) => {
@@ -56,8 +56,8 @@ function App() {
     fetchImages(topic, nextPage);
   };
 
-  const openModal = (image: ImageData) => {
-    setSelectedImage({ srcSet: image.urls.regular, alt: image.alt_description ?? undefined });
+  const openModal = (image: { srcSet: string; alt?: string }) => {
+    setSelectedImage(image);
     setIsOpen(true);
   };
 
@@ -67,9 +67,9 @@ function App() {
 
   return (
     <>
-      <Header onSearch={onSearch} notify={notify}/>
-      <Toaster toastOptions={{ style: { marginTop: '80px' } }}/>
-      {images.length > 0 && <ImageGallery images={images} openModal={openModal}/>}
+      <Header onSearch={onSearch} notify={notify} />
+      <Toaster toastOptions={{ style: { marginTop: '80px' } }} />
+      {images.length > 0 && <ImageGallery images={images} openModal={openModal} />}
       {loading && <Audio height="80" width="80" color="orange" ariaLabel="loading" />}
       {error && <ErrorMessage message="Whoops, something went wrong! Please try reloading this page!" />}
       {images.length > 0 && !loading && hasMore && <LoadMoreBtn onClick={loadMore} />}
@@ -79,6 +79,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
