@@ -1,11 +1,24 @@
-// import styles from "./ErrorMessage.module.css"
+type ErrorMessageProps = {
+  message: string;
+};
 
-const ErrorMessage = ({message}) => {
+const ErrorMessage = ({ message }: ErrorMessageProps) => {
   return (
     <div>
       <p>{message}</p>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorMessage
+export default ErrorMessage;
+
+
+// const ErrorMessage = ({message}) => {
+//   return (
+//     <div>
+//       <p>{message}</p>
+//     </div>
+//   )
+// }
+
+// export default ErrorMessage
