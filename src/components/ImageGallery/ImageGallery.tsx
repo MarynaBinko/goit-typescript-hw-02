@@ -17,7 +17,7 @@ const ImageGallery = ({ images, openModal }: ImageGalleryProps) => {
               src={urls.small} 
               srcSet={urls.regular} 
               alt={alt_description || ''} 
-              openModal={() => openModal({ srcSet: urls.regular, alt: alt_description })}
+              openModal={() => openModal({ srcSet: urls.regular, alt: alt_description || '' })}
             />
           </li>
         ))}
@@ -27,6 +27,7 @@ const ImageGallery = ({ images, openModal }: ImageGalleryProps) => {
 };
 
 export default ImageGallery;
+
 
 
 
